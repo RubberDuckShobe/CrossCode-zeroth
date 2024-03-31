@@ -211,7 +211,7 @@ export default class Zeroth {
             "im thinkin about those chords fr",
             "i am SHORT and i have MEATY THIGHS that makes me suffer when i want pants but the ladies love that. i fight an inner battle with myself",
 						"guy making this either has a life expentancy of 28 years, or he's like the number one on the 2024 MDVA groomer power ranking",
-            "why you, as a man, be shoppin"
+            "why you, as a man, be shoppin",
           ];
           const randomQuote =
             zerothQuotes[Math.floor(Math.random() * zerothQuotes.length)];
