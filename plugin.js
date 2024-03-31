@@ -1,4 +1,6 @@
 export default class Zeroth {
+  let history = {};
+  let time = 0;
   prestart() {
     sc.MessageModel.inject({
       showMessage(person, text, someAutoContinueThing) {
@@ -213,8 +215,14 @@ export default class Zeroth {
 						"guy making this either has a life expentancy of 28 years, or he's like the number one on the 2024 MDVA groomer power ranking",
             "why you, as a man, be shoppin",
           ];
+	  let index = Math.floor(Math.random() * zerothQuotes.length);
+          while (history[index] == null || history[index] < time - 50) {
+	    let index = Math.floor(Math.random() * zerothQuotes.length);
+	  }
+          history[index] = time;
+	  time += 1;
           const randomQuote =
-            zerothQuotes[Math.floor(Math.random() * zerothQuotes.length)];
+            zerothQuotes[index];
           this.parent(person, randomQuote, someAutoContinueThing);
         } else {
           //console.log(person);
