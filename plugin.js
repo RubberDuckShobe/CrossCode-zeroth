@@ -206,9 +206,9 @@ export default class Zeroth {
             "Conrad's body could rock anybody's world. At the same time. Such is the power that he wields.",
             "you cannot get more real than this, it's pure aura and nothing else",
             "this is my bible. this is my theory. Six guys AND ONLY SIX GUYS mashing it out. and the guitar is doubled by somebody singing. thats whats fucking up",
-		        "they call me womb, weapon of mass birth",
-		        "anyways you're smoking absolute reefer",
-		        "im thinkin about those chords fr",
+            "they call me womb, weapon of mass birth",
+            "anyways you're smoking absolute reefer",
+            "im thinkin about those chords fr",
             "i am SHORT and i have MEATY THIGHS that makes me suffer when i want pants but the ladies love that. i fight an inner battle with myself",
 		        "guy making this either has a life expentancy of 28 years, or he's like the number one on the 2024 MDVA groomer power ranking",
             "why you, as a man, be shoppin"
