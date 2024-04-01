@@ -1,11 +1,6 @@
 export default class Zeroth {
-  var history = {};
-  var time = 0;
-  prestart() {
-    sc.MessageModel.inject({
-      showMessage(person, text, someAutoContinueThing) {
-        if (person == "main.lea") {
-          const zerothQuotes = [
+    prestart() {
+        const zerothQuotes = [
             "we all have fantasize bout it",
             "we are very much back",
             "vlone thug spotted in mislata almassil i repeat, a true vlone soldier was spotted in mislata almassil",
@@ -212,23 +207,40 @@ export default class Zeroth {
             "anyways you're smoking absolute reefer",
             "im thinkin about those chords fr",
             "i am SHORT and i have MEATY THIGHS that makes me suffer when i want pants but the ladies love that. i fight an inner battle with myself",
-						"guy making this either has a life expentancy of 28 years, or he's like the number one on the 2024 MDVA groomer power ranking",
+            "guy making this either has a life expentancy of 28 years, or he's like the number one on the 2024 MDVA groomer power ranking",
             "why you, as a man, be shoppin",
-          ];
-	  var index = Math.floor(Math.random() * zerothQuotes.length);
-          while (history[index] == null || history[index] < time - 50) {
-	    index = Math.floor(Math.random() * zerothQuotes.length);
-	  }
-          history[index] = time;
-	  time += 1;
-          const randomQuote =
-            zerothQuotes[index];
-          this.parent(person, randomQuote, someAutoContinueThing);
-        } else {
-          //console.log(person);
-          this.parent(person, text, someAutoContinueThing);
+        ];
+
+        var history = {};
+        var time = 0;
+
+        const proration = 50;
+
+        function randomQuote() {
+            var index = Math.floor(Math.random() * zerothQuotes.length);
+            while (history[index] != null && history[index] > time - proration) {
+                index = Math.floor(Math.random() * zerothQuotes.length);
+            }
+            history[index] = time;
+            time += 1;
+            return zerothQuotes[index];
         }
-      },
-    });
-  }
+
+        sc.MessageModel.inject({
+            showMessage(person, text, someAutoContinueThing) {
+                if (person == "main.lea") {
+                    this.parent(person, randomQuote(), someAutoContinueThing);
+                } else {
+                    this.parent(person, text, someAutoContinueThing);
+                }
+            },
+            showSideMessage(person, text, someAutoContinueThing) {
+                if (person == "main.lea") {
+                    this.parent(person, randomQuote(), someAutoContinueThing);
+                } else {
+                    this.parent(person, text, someAutoContinueThing);
+                }
+            },
+        });
+    }
 }
