@@ -1,9 +1,6 @@
 export default class Zeroth {
-  prestart() {
-    sc.MessageModel.inject({
-      showMessage(person, text, someAutoContinueThing) {
-        if (person == "main.lea") {
-          const zerothQuotes = [
+    prestart() {
+        const zerothQuotes = [
             "we all have fantasize bout it",
             "we are very much back",
             "vlone thug spotted in mislata almassil i repeat, a true vlone soldier was spotted in mislata almassil",
@@ -174,15 +171,76 @@ export default class Zeroth {
             "i want to look girly not because i want to be a woman, but because my sister met a lesbian neurology uni professor who also does vtubing on the side and is kind of a mess irl",
             "carpet bombing atlus' headquarters until they add japanese guy with a beanie whos into jumpstyle and izzy kramer to the cast of the upcoming persona game",
             "is making a dubstep song doing skrillex fanfiction? discuss",
-          ];
-          const randomQuote =
-            zerothQuotes[Math.floor(Math.random() * zerothQuotes.length)];
-          this.parent(person, randomQuote, someAutoContinueThing);
-        } else {
-          //console.log(person);
-          this.parent(person, text, someAutoContinueThing);
+            "Okay I'll bite, the fuck is locktober?",
+            "im basically going for aweminus snare kind of heavy but more polished",
+            "i doubt you guys have what it takes to be a true #malelesbian",
+            "a bit of cancer is never bad",
+            "we all know what your role would be in omegaverse society",
+            "yo Midas man can you send me the logic tubular bells",
+            "ONE THOUSAND AND ONE NIGHTS IT WAS ALI BABA AND THE FORTY THIEVES",
+            "man I can't even mix in peace",
+            "also the streets have been saying 'hey miquel, you don't use enough aave! up should up thestats",
+            "you gotta tap into the streets, they have the answer",
+            "maslow hierarchy of needs, its all painted on top saying: pussy from a girl who is mean in general and very coarse with ppl she dislikes but somehow not mean to you",
+            "jay eazy fucks with tsukihime but not with edging",
+            "fuck anime bruh, why do they play on our deepest fantasies. 30 cent donuts.............. not even in my dreams i can come up with something like this",
+            "LMAO ppl postin abt being creamed on 24/7",
+            "its fucked up. these FEMALES. they be lUBIN THEIR SWTICHES",
+            "time to inject honey into the bloodsteam",
+            "you sound good, suck my nuts",
+            "my body is an amalgamation of motorola 68000's doing various wacky tacks",
+            "THIS APP PAYS YOU TO WALK TAP IN ->",
+            "carpet bombing atlus' headquarters until they add japanese guy with a beanie whos into jumpstyle and izzy kramer to the cast of the upcoming persona game",
+            "lettin the money speak to my ears but its a pair of DIs instead. oooooo my balanced signals.",
+            "guy/girl who is extremely incompetent at what they do: ughhh my impostor syndrome :(",
+            "scatching my phantom balls",
+            "NEED THIS ON MY MOUTH RIGHT NOW",
+            "first cishet guy to be somewhat into skincare and not be ran thru into the ground",
+            "my fbi agent is the pretty girl reading this",
+            "to all my lesbians: too much yearning and not enough Earning for real",
+            "stop with all that fanfiction yuri, yu really need to get ur bands up. you got it sis. go get that bag",
+            "RIP bozo",
+            "Conrad's body could rock anybody's world. At the same time. Such is the power that he wields.",
+            "you cannot get more real than this, it's pure aura and nothing else",
+            "this is my bible. this is my theory. Six guys AND ONLY SIX GUYS mashing it out. and the guitar is doubled by somebody singing. thats whats fucking up",
+            "they call me womb, weapon of mass birth",
+            "anyways you're smoking absolute reefer",
+            "im thinkin about those chords fr",
+            "i am SHORT and i have MEATY THIGHS that makes me suffer when i want pants but the ladies love that. i fight an inner battle with myself",
+            "guy making this either has a life expentancy of 28 years, or he's like the number one on the 2024 MDVA groomer power ranking",
+            "why you, as a man, be shoppin",
+        ];
+
+        var history = {};
+        var time = 0;
+
+        const proration = 50;
+
+        function randomQuote() {
+            var index = Math.floor(Math.random() * zerothQuotes.length);
+            while (history[index] != null && history[index] > time - proration) {
+                index = Math.floor(Math.random() * zerothQuotes.length);
+            }
+            history[index] = time;
+            time += 1;
+            return zerothQuotes[index];
         }
-      },
-    });
-  }
+
+        sc.MessageModel.inject({
+            showMessage(person, text, someAutoContinueThing) {
+                if (person == "main.lea") {
+                    this.parent(person, randomQuote(), someAutoContinueThing);
+                } else {
+                    this.parent(person, text, someAutoContinueThing);
+                }
+            },
+            showSideMessage(person, text, someAutoContinueThing) {
+                if (person.character.name == "main.lea") {
+                    this.parent(person, randomQuote(), someAutoContinueThing);
+                } else {
+                    this.parent(person, text, someAutoContinueThing);
+                }
+            },
+        });
+    }
 }
