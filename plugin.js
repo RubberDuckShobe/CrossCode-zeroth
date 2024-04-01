@@ -235,7 +235,7 @@ export default class Zeroth {
                 }
             },
             showSideMessage(person, text, someAutoContinueThing) {
-                if (person == "main.lea") {
+                if (person.character.name == "main.lea") {
                     this.parent(person, randomQuote(), someAutoContinueThing);
                 } else {
                     this.parent(person, text, someAutoContinueThing);
