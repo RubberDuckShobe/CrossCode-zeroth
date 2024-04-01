@@ -1,7 +1,7 @@
 {
     "name": "zeroth",
     "ccmodHumanName": "Random zeroth quotes",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "plugin": "plugin.js",
 	"description": "lets fucking get it"
 }
